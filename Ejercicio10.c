@@ -6,41 +6,42 @@ considerando que las primeras 160 horas trabajadas serán a $6.5 y el resto de h
 
 void salario(int horas);
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    int op, hora;
-    printf("1. Evaluar salario\n");
-    printf("2. Salir\n");
-    printf("Opcion:");
-    scanf("%d", &op);
-    switch (op)
-    {
-    case 1:
+int main(int argc, char const *argv[]) {
+    int op, horas;
     
-        printf("Dime tus horas trabajadas:");
-        scanf("%d", &hora);
-        salario(hora);
-        break;
-    case 2:
-        break;
-    default:
-        printf("Opcion invalida...\n");
-        break;
-    }
-    if (op != 2){
-        main(0, 0);
-    }
+    do {
+        printf("1. Evaluar salario\n");
+        printf("2. Salir\n");
+        printf("Opcion:");
+        scanf("%d", &op);
+
+        switch (op) {
+            case 1:
+                printf("Dime tus horas trabajadas: ");
+                scanf("%d", &horas);
+                salario(horas);
+                break;
+            case 2:
+                break;
+            default:
+                printf("Opcion invalida...\n");
+                break;
+        }
+    } while (op != 2);
+
     return 0;
 }
 
-float salario(int hora, int resultado)
-{
-    if (hora >= 0 && hora < 160)
-        resultado=hora*6.5;
-        printf("Tu salario es....\n", resultado);
+void salario(int horas){
+    int resultado;
 
-    else
-        resultado=hora*7.5;
-        printf("Tu salario es...\n", resultado);
+    if (horas >= 0 && horas < 160){
+        resultado=horas*6.5;
+        printf("Tu salario es: %d\n", resultado);
+
+    }else{
+        resultado=horas*7.5;
+        printf("Tu salario es...%d\n", resultado);
+    }
+        
 }
